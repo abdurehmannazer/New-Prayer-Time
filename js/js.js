@@ -33,7 +33,8 @@ let isha = document.querySelector("#isha")
 
 select.onchange = function () {
     let city = select.value
-    firstContainer.style.backgroundImage = `url("/Media/${city}.png")`;
+    firstContainer.style.backgroundImage = `url(/Media/` + city + ".png)";
+    // firstContainer.style.backgroundImage = `url(/Media/${city}.png)`;
     firstContainer.style.backgroundPosition = "center";
     firstContainer.style.backgroundSize = "cover";
     firstContainer.style.backgroundRepeat = "no-repeat";
@@ -41,8 +42,9 @@ select.onchange = function () {
     getData(city)
 }
 
-function getData(city) {
-    axios.get(`https://api.aladhan.com/v1/calendarByCity?city=${city}&country=sa`)
+function getData(c) {
+    axios.get("https://api.aladhan.com/v1/calendarByCity?city=" + c + "&country=sa")
+    // axios.get(`https://api.aladhan.com/v1/calendarByCity?city=${city}&country=sa`)
     .then((respons) => {
     setPrayTim(respons)     
     console.log("done")    
