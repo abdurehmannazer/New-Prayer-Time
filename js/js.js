@@ -35,17 +35,11 @@ let isha = document.querySelector("#isha")
 select.onchange = function () {
     let city = select.value
     img.src = `./Media/${city}.png`
-    // // firstContainer.style.backgroundImage = `url(/Media/${city}.png)`;
-    // firstContainer.style.backgroundPosition = "center";
-    // firstContainer.style.backgroundSize = "cover";
-    // firstContainer.style.backgroundRepeat = "no-repeat";
-
     getData(city)
 }
 
 function getData(c) {
-    axios.get("https://api.aladhan.com/v1/calendarByCity?city=" + c + "&country=sa")
-    // axios.get(`https://api.aladhan.com/v1/calendarByCity?city=${city}&country=sa`)
+    axios.get(`https://api.aladhan.com/v1/calendarByCity?city=${c}&country=sa`)
     .then((respons) => {
     setPrayTim(respons)     
     console.log("done")    

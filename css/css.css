@@ -5,14 +5,19 @@
 }
 
 
-
+.prayerTime {
+}
 
 .firstContainer {
     height: 35%;
-    /* background-image: url("Media/Riyadh.PNG"); */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+
+}
+.firstContainer img {
+    width:  100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
@@ -21,6 +26,12 @@
     border-radius: 1.5rem;
     background-color: hsl(191, 71%, 32%);
     color: #f2f2f2;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 999;
+
     
 }
 .txt h6 {
@@ -42,16 +53,24 @@
     font-weight: bold;   
 }
 .secendContainer {
-    background: url("/Media/quran.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;    
-    background-position-y: bottom;
     width: 100%;
     height: 65%;
 }
+.secendContainer img {
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    
+}
+
 .timesBos {
     width: 65%;
     height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10%;
+
     margin: auto;
     display: flex;
     flex-direction: column;
