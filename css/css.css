@@ -9,7 +9,7 @@
 
 .firstContainer {
     height: 35%;
-    background-image: url("./Media/riyadh.png");
+    background-image: url("/Media/Riyadh.PNG");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
