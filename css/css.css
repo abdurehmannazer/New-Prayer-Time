@@ -5,7 +5,11 @@
 }
 
 
+body {
+    height: 100vh;
+}
 .prayerTime {
+    height: 100vh;
 }
 
 .firstContainer {
@@ -60,7 +64,7 @@
     position: absolute;
     top: 0;
     z-index: 0;
-    
+
 }
 
 .timesBos {
