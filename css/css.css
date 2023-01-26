@@ -83,7 +83,7 @@ body {
 }
 .timesBos h6 {
     height: 3rem;
-    background-color: rgba(237, 224, 206, 0.8);
+    background-color: rgba(237, 224, 206, 0.85);
     margin-bottom: .9rem;
     padding: 1rem;
     border-radius: 1.5rem;
@@ -94,6 +94,11 @@ body {
     font-weight: bold;
     color: #49443f;
 }
-.timesBos h6 span {
+.timesBos h6 span:last-child {
     color: #A66B56;
+}
+
+.nxt {
+    font-size: .8rem;
+    text-decoration: underline;
 }
