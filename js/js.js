@@ -33,6 +33,9 @@ let asr = document.querySelector("#asr")
 let maghrib = document.querySelector("#maghrib")
 let isha = document.querySelector("#isha")
 
+var nxt = document.querySelector(".ISH")
+
+
 
 select.onchange = function () {
     let city = select.value
@@ -44,7 +47,8 @@ select.onchange = function () {
 function getData(c) {
     axios.get(`https://api.aladhan.com/v1/calendarByCity?city=${c}&country=sa`)
     .then((respons) => {
-    setPrayTime(respons)     
+        setPrayTime(respons)     
+        // console.log(respons.data.data[25].timings)
     }).catch(() => {
         console.log("No data")
         location.reload()
@@ -54,6 +58,7 @@ function getData(c) {
 
 function setPrayTime (respons) {    
     let date = respons.data.data[toDay]
+    // console.log(date)
     let dayName = date.date.hijri.weekday.ar
     let Ar_date = date.date.hijri.day
     let Ar_month =  date.date.hijri.month.ar
@@ -66,14 +71,14 @@ function setPrayTime (respons) {
     // الفجر
     let FajrH = +date.timings.Fajr.slice(0, 2)
     let FajrM = +date.timings.Fajr.slice(3, 5)    
-        let a0 = 0
+    let a0 = 0
     FajrM < 10
         ? a0 = "0"
         : a0 = ""   
     fajar.innerHTML = "0" + FajrH + ":" + a0 + FajrM + " ص"
     if (newDate > FajrH && newDate <  date.timings.Dhuhr.slice(0, 2)) {
     console.log("next time is Dhuhr ")
-    setNxttime_D(date)
+    // setNxttime_D(date)
     }
     
 
@@ -97,7 +102,7 @@ function setPrayTime (respons) {
     }
     if (newDate > Dhuhr_H && newDate <  date.timings.Asr.slice(0, 2)) {
     console.log("next time is Asr")
-    setNxttime_A(date)
+    // setNxttime_A(date)
     }
 
     // العصر
@@ -109,7 +114,9 @@ function setPrayTime (respons) {
     asr.innerHTML = "0" + AsrH + ":" + AsrS + " م"
     if (newDate > date.timings.Asr.slice(0, 2) && newDate <  date.timings.Maghrib.slice(0, 2)) {
     console.log("yes")
-    setNxttime_M(date)
+    // setNxttime_M(date)
+    } else {
+        // console.log("NOOO")
     }
 
     // المغرب
@@ -121,7 +128,7 @@ function setPrayTime (respons) {
     maghrib.innerHTML = "0" + Maghrib_H + ":" + Maghrib_S + " م"
     if (newDate > date.timings.Maghrib.slice(0, 2) && newDate <  date.timings.Isha.slice(0, 2)) {
     console.log("yes")
-    setNxttime_I(date)
+    // setNxttime_I(date)
     }
 
     // العشاء 
@@ -131,9 +138,12 @@ function setPrayTime (respons) {
     Isha_H = Isha_H -12
     }
     isha.innerHTML = "0" + Isha_H + ":" + Isha_S + " م"  
-    if (newDate > date.timings.Isha.slice(0, 2) && newDate <  date.timings.Fajr.slice(0, 2)) {
-    console.log("yes")
-    setNxttime_F(date)
+    // console.log(date)
+    if (newDate > date.timings.Isha.slice(0, 2)) {
+        setNxttime_I(date)
+        
+    } else {
+        console.log("____")
     }
 }
 
@@ -317,44 +327,49 @@ function setNxttime_M(date) {
 
 
 }
-function setNxttime_I(date) {
-
-    var year_ = +date.date.gregorian.year
-    var month_ = date.date.gregorian.month.number - 1
-    var day_ = +date.date.gregorian.day
-    var hours_ = +date.timings.Isha.slice(0, 2)
-    var secends_ = +date.timings.Isha.slice(3, 5)
 
 
-    var setTime = setInterval(() => {
 
-        // The data/time we want to countdown to
-        var countDownDate = new Date(year_,month_,day_,hours_,secends_).getTime()
-        var now = new Date().getTime();
-        var timeleft = countDownDate - now;
+
+function setNxttime_I(date) {  
     
+    var year_ = date.date.gregorian.year
+    var month_ = date.date.gregorian.month.number - 1
+    var day_ = date.date.gregorian.day
+    var hours_ = date.timings.Isha.slice(0, 2)
+    var minutes_ = date.timings.Isha.slice(3, 5)
+    
+    var setTime = setInterval(() => {     
+        
+        var countDownDate = new Date(year_, month_, day_, hours_ , minutes_).getTime()
+        var now = new Date().getTime();
+        var timeleft = now - countDownDate;    
     
         var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-        if (minutes < 10) {
-            minutes = "0" + minutes
-        }
         var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-        if (seconds < 10) {
-            seconds = "0" + seconds
-        }
-        var nxt = document.querySelector(".isha")
-        nxt.innerHTML = `متبقي: 0${hours}:${minutes}:${seconds}`
 
-        if (timeleft < 1) {
-            clearInterval(setTime);
+
+        minutes < 10
+            ? minutes = "0" + minutes
+            : minutes;
+        seconds < 10
+            ? seconds = "0" + seconds
+            : seconds
+
+        nxt.innerHTML = `مضى: 0${hours}:${minutes}:${seconds}`
+
+        if (hours > 5) {
+            clearInterval(setTime)
             nxt.innerHTML = ""
         }
 
     }, 1000)
-
-
-
-
 }
+
+
+
+
+
+
 
