@@ -140,7 +140,7 @@ function setPrayTime (respons) {
     isha.innerHTML = "0" + Isha_H + ":" + Isha_S + " م"  
     // console.log(date)
     if (newDate > date.timings.Isha.slice(0, 2)) {
-        setNxttime_I(date)
+        // setNxttime_I(date)
         
     } else {
         console.log("____")
