@@ -34,7 +34,7 @@ body {
     top: 100%;
     left: 50%;
     transform: translate(-50% , -50%);
-    z-index: 999;
+    z-index: 9;
 
     
 }
@@ -101,4 +101,40 @@ body {
 .nxt {
     font-size: .8rem;
     text-decoration: underline;
+}
+.popupContainer {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.txtPop {
+    z-index: 101;
+    overflow: hidden;
+    transition: 0.5s;
+
+}
+.popup {
+    background-color: rgba(73, 68, 63, 0.8);
+}
+.wts {
+    font-size: 1rem;
+    margin-top: 4px !important;
+}
+.wts a {
+    color: #63cb77;
+    padding-right: .5rem;
+}
+.wts a:focus {
+    color: #63cb77;
+}
+.txtPop p {
+    font-size: 1rem;
+    padding: 0 4px;
+    margin: 0 ;
+
 }

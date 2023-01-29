@@ -373,3 +373,12 @@ function setNxttime_I(date) {
 
 
 
+
+
+var btn = document.querySelector(".btna")
+btn.onclick = function () {
+    var popupContainer =  document.querySelector(".popupContainer")
+    popupContainer.style.height = "0%"
+
+    
+}
