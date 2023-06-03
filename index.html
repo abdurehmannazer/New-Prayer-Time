@@ -13,44 +13,38 @@
     
 </head>
 <body>
-    <div class="prayerTime vh-100 w-100 position-relative">
-        
-        <div class="firstContainer  position-relative z-0">
-            <img src="./Media/riyadh.png" alt="" class="">
+    <div class="prayerTime vh-100 w-100 ">      
+        <div class="main_image"></div>  
 
-            
-            <div class="txt col-10 col-md-8 col-lg-6 mx-auto py-2 px-2 text-center    ">
-                <h6 > مواقيت الصلاة في المملكة العربية السعودية </h6>
-                <h6 class="detail"></h6>
+        <div class="firstContainer ">
+            <div class="container">
+                <div class="txt ">
+                    <h6 > مواقيت الصلاة في المملكة العربية السعودية </h6>
+                    <h6 class="detail"></h6>
+                </div>            
+                <select  class="mx-auto  px-2 py-2 rounded " id="select" >
+                    <option value="riyadh">الرياض</option>
+                    <option  value="Mecca">مكة المكرمة</option>
+                    <option value="Medina">المدينة المنورة</option>
+                    <option value="Dammam">الدمام</option>
+                    <option value="Tabuk">تبوك</option>
+                    <option value="Abha">أبها</option>
+                </select>
+
             </div>
-            
-            <select  class="mx-auto  px-2 py-2 rounded " id="select" >
-                <option value="riyadh">الرياض</option>
-                <option  value="Mecca">مكة المكرمة</option>
-                <option value="Medina">المدينة المنورة</option>
-                <option value="Dammam">الدمام</option>
-                <option value="Tabuk">تبوك</option>
-                <option value="Abha">أبها</option>
-            </select>
-        </div>
-        
-        <div class="secendContainer  position-relative ">
-                <img src="./Media/bg.jpg" alt="" class="img-fluid">
+        </div>        
 
-            
-            <div class="timesBos col-9 col-md-7 col-lg-5 ">
+        <div class="secendContainer  position-relative ">
+            <div class="timesBos ">
                 <h6>الفجر   <span class="nxt FJ" ></span> <span id="fajar"></span> </h6>
                 <h6>الظهر  <span class="nxt DH"></span> <span id="dhuhor"></span></h6>
                 <h6>العصر <span class="nxt AS"></span>  <span id="asr"></span></h6>
                 <h6>المغرب <span class="nxt MG"></span> <span id="maghrib"></span></h6>
                 <h6>العشاء <span class="nxt ISH"></span>   <span id="isha"></span></h6>
-            </div>
-
-        
+            </div>        
         </div>     
         
         <div class="popupContainer  ">
-
             <div class="popup  w-100 h-100 position-absolute "></div>
             <div class="txtPop text-white position-absolute top-50 start-50 translate-middle bg-dark w-75  text-center rounded  ">
                 <h6 class=" text-light w-100 border-bottom p-3">رسالة من المبرمج/ عبدالرحمن ابوعقيل</h6>    
@@ -58,23 +52,12 @@
                 <br>        آمل أن يكون هذا الموقع مفيد لك           </p>
                 <p class="wts  border-bottom pb-2">لإبداء ملاحظاتك او التواصل معي: <a href="https://wa.me/966580647334"><i class="bi bi-whatsapp"></i></a></p>
                 <div class="btna btn-secondary my-2 "><i class="bi bi-x-circle fs-3"></i></div>
-
-
-
             </div>
-
         </div>
-
-
-
     </div>
 
 
 
-    
-    
-    
-    
     
     
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
