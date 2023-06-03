@@ -39,7 +39,8 @@ let isha = document.querySelector("#isha")
 
 select.onchange = function () {
     let city = select.value
-    main_image.style.backgroundImage  = `url('./Media/${city}.png')`
+    main_image.style.backgroundImage = 'url("../Media/' + `${city}.png")`
+    console.log()
     getData(city)
 }
 
