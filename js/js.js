@@ -21,8 +21,8 @@ location.onload = getData("riyadh")
 
 
 let select = document.querySelector("#select")
+let main_image = document.querySelector(".main_image")
 let firstContainer = document.querySelector(".firstContainer")
-let img = document.querySelector(".firstContainer img")
 let txt = document.querySelector(".txt")
 let toDay = new Date().getDate() - 1;
 let detail = document.querySelector(".detail")
@@ -33,15 +33,14 @@ let asr = document.querySelector("#asr")
 let maghrib = document.querySelector("#maghrib")
 let isha = document.querySelector("#isha")
 
-var nxt = document.querySelector(".ISH")
+// var nxt = document.querySelector(".ISH")
 
 
 
 select.onchange = function () {
     let city = select.value
-    img.src = `./Media/${city}.png`
+    main_image.style.backgroundImage  = `url('../Media/${city}.png')`
     getData(city)
-
 }
 
 function getData(c) {
